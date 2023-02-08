@@ -1,0 +1,44 @@
+.container{
+    width: 100%;
+    height: 100vh;
+
+    background-image: linear-gradient(to bottom right, #868686, #b1b1b1,#e3e3e3,#e0ddb9,#a9a05a);
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form{
+    height: auto;
+    width: 30rem;
+    background-color: #e3e3e3;
+    opacity: .6;
+    display: grid;
+    padding: 15px;
+    box-shadow: 0 0 2px 2px;
+}
+.txtField{
+    width: 100%;
+    size: 2vh;
+    font-weight: bold;
+}
+
+.loggedIn{
+    width: 100%;
+    height: 100vh;
+
+    background-image: linear-gradient(to bottom right, #868686, #b1b1b1,#e3e3e3,#e0ddb9,#a9a05a);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.txtLoggedIn{
+    background-color: #868686;
+    opacity: .4;
+    size: 6vh;
+    text-transform: capitalize;
+}

@@ -1,0 +1,138 @@
+.container{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-top: 70px;
+    margin-bottom: 90px;
+
+    background-image: linear-gradient(#a9a05a,#e0ddb9,#b1b1b1 ,#e0ddb9, #a9a05a) ;
+
+}
+
+.articles{
+  width: 30em;
+  height: 35em;
+
+  display: grid;
+  grid-template-columns: repeat(autofit,minmax(428px,1fr));
+  justify-content: space-around;
+
+  background-color: #e3e3e3;
+  opacity: .5;
+
+  margin: 2em;
+  padding: 10px;
+
+  border-radius: 15px;
+  
+
+
+  @media (max-width:428px) {
+    width: 20em;
+    max-height: 25em;  
+
+  }
+}
+
+.articleTitle{
+  width: 100%;
+  height: fit-content;
+  //justify-content: start;
+  //margin-bottom: 5em;
+  size: 2.5em;
+  text-transform: capitalize;
+  font-weight: bold;
+
+  @media (max-width:428px) {
+    //margin-bottom: 3em;  
+    size: 2em;   
+  }
+}
+
+.dateAndCategory{
+
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  
+  font-style: italic;
+  size: 0.5em;
+  //margin-bottom: 0.5em;
+  @media (max-width:428px) {
+    size: 0.4em;     
+  }
+}
+
+.articleDate{
+  justify-items: start;
+}
+
+.articleCategory{
+  justify-items: end;
+}
+
+.articleContent{
+  size: 1.5em;
+  //margin-bottom: 15em;
+
+  @media (max-width:428px) {
+    size: 1em;
+    //margin-bottom: 5em;   
+  }
+}
+
+.articleAuthor{
+  font-style: italic;
+  font-weight: bold;
+  font-size: 0.75em;
+  bottom: 1;
+  text-align: center;
+
+  @media (max-width:428px) {
+    size: 0.5em; 
+  }
+
+}
+
+.editArticle{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+ .articleEdit{
+  width: 50%;
+ }
+ .articleDelete{
+  width: 50%;
+ }
+
+
+.loggedIn{
+  width: 100%;
+  height: 100vh;
+
+  background-image: linear-gradient(to bottom right, #868686, #b1b1b1,#e3e3e3,#e0ddb9,#a9a05a);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;    
+}
+
+.txtLoggedIn{
+  background-color: #868686;
+  opacity: .4;
+  size: 6vh;
+  text-transform: capitalize;
+}
+
+.icbackground{
+max-height: 100px;
+background-color: #b1b1b1;
+opacity: .8;
+border-radius: 50px;
+}
