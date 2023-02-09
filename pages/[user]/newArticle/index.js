@@ -24,6 +24,7 @@ const addArticle = () => {
     "Productivity",
     "Health",
     "Technology",
+    "Music",
     "other",
   ];
 
@@ -73,6 +74,7 @@ const addArticle = () => {
                 disablePortal
                 freeSolo
                 d="combo-box-demo"
+                className={styles.Category}
                 options={categoryOptions}
                 onChange={(event, value) => {
                   if (value == null) setCategory(null);
@@ -99,21 +101,23 @@ const addArticle = () => {
             />
 
             <div className={styles.email}>{user.email}</div>
-            <Button
-              className={styles.btnAdd}
-              variant="contained"
-              disabled={
-                title == null ||
-                category == null ||
-                content == null ||
-                title == "" ||
-                content == ""
-              }
-              //onClick when a fuction doen't need a parameter
-              onClick={insertArticle}
-            >
-              +
-            </Button>
+            <div className={styles.btnContainer}>
+              <Button
+                className={styles.btnAdd}
+                variant="contained"
+                disabled={
+                  title == null ||
+                  category == null ||
+                  content == null ||
+                  title == "" ||
+                  content == ""
+                }
+                //onClick when a fuction doen't need a parameter
+                onClick={insertArticle}
+              >
+                Add Article
+              </Button>
+            </div>
           </form>
         </div>
       ) : (

@@ -22,14 +22,24 @@
     padding: 15px;
     box-shadow: 0 0 2px 2px;
 }
-.txtField, .email{
+.txtField, .email, .Category{
     width: 100%;
     size: 2vh;
     font-weight: bold;
 }
 
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .btnAdd{
+    width: auto;
+    height: auto;
+    font-size: medium;
+    background-color: #70b4a3;
+    border-radius: 25px;
     
 }
 

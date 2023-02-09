@@ -108,21 +108,23 @@ const editArticle = () => {
             />
 
             <div className={styles.email}>{user.email}</div>
-            <Button
-              className={styles.btnAdd}
-              variant="contained"
-              disabled={
-                title == null ||
-                category == null ||
-                content == null ||
-                title == "" ||
-                content == ""
-              }
-              //onClick when a fuction doen't need a parameter
-              onClick={updateArticle}
-            >
-              Update
-            </Button>
+            <div className={styles.btnContainer}>
+              <Button
+                className={styles.btnAdd}
+                variant="contained"
+                disabled={
+                  title == null ||
+                  category == null ||
+                  content == null ||
+                  title == "" ||
+                  content == ""
+                }
+                //onClick when a fuction doen't need a parameter
+                onClick={updateArticle}
+              >
+                Update
+              </Button>
+            </div>
           </form>
         </div>
       ) : (

@@ -150,6 +150,7 @@ const signUp = () => {
             </div>
             <Button
               variant="contained"
+              className={styles.btnSignUp}
               disabled={
                 password == null ||
                 email == null ||

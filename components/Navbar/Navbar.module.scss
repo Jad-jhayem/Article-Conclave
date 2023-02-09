@@ -92,7 +92,7 @@ $clr-navgreen: #a0d269;
 }
  .btnLogIn{
     background-color: $clr-navblue;
-    padding-bottom: 15px;
+    padding-bottom: 8px;
     @media screen and (min-width:1300px){
         padding-bottom: 27px;
     }  
@@ -100,7 +100,7 @@ $clr-navgreen: #a0d269;
 
  .btnSignUp{
     background-color: $clr-navgreen;
-    padding-top: 15px;
+    padding-top: 8px;
     @media screen and (min-width:1300px){
         padding-top: 27px;
     }  

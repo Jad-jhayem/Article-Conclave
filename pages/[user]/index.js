@@ -89,11 +89,14 @@ const articlePage = () => {
                       {article.content}
                     </div>
                     <div className={styles.articleAuthor}>{userName}</div>
-                    <div
-                      className={styles.editArticle}
-                      onClick={() => editArticle(article)}
-                    >
-                      <Edit className={styles.articleEdit}></Edit>
+                    <div className={styles.editArticle}>
+                      <div
+                        className={styles.articleEdit}
+                        onClick={() => editArticle(article)}
+                      >
+                        <Edit></Edit>
+                      </div>
+
                       {/* it takes a parameter so it's a function */}
                       <div
                         className={styles.articleDelete}

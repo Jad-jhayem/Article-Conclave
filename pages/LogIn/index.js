@@ -35,7 +35,7 @@ const logIn = () => {
         }
       })
       .catch((e) => {
-        setInvalidEmail(true);
+        setInvalidusername(true);
       });
   };
 
@@ -70,6 +70,7 @@ const logIn = () => {
             </div>
             <Button
               variant="contained"
+              className={styles.btnLogIn}
               disabled={
                 password == null || name == null || password == "" || name == ""
               }
@@ -78,6 +79,16 @@ const logIn = () => {
             >
               Log In
             </Button>
+            {invalidUsername == true && (
+              <div className={styles.userexist}>
+                <p className={styles.txtuserexist}>User doesn't exist</p>
+              </div>
+            )}
+            {invalidPassword == true && (
+              <div className={styles.userexist}>
+                <p className={styles.txtuserexist}>Incorrect password</p>
+              </div>
+            )}
           </form>
         </div>
       ) : (

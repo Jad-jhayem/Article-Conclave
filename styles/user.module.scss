@@ -37,6 +37,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 
 }
 
@@ -55,8 +56,10 @@
   padding: 10px;
 
   border-radius: 15px;
-  
 
+  border-style: groove;
+  border-radius: 1em;
+  border-color: #b1b1b1;
 
   @media (max-width:428px) {
     width: 20em;
@@ -127,7 +130,18 @@
 .editArticle{
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  
+}
+.articleEdit,.articleDelete{
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border-style: groove;
+  border-radius: 1em;
+  border-color: #b1b1b1;
   
 }
  .articleEdit{
