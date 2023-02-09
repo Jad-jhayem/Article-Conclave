@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useLogIn } from "@/context/LogIn";
 import { Edit, Delete, Add } from "@mui/icons-material";
+import CircularProgress from "@mui/material/CircularProgress";
 import Link from "next/link";
 
 const articlePage = () => {
   //state to store articles fetched from database so we can update it immediately on the screen
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const url = process.env.NEXT_PUBLIC_URL;
 
@@ -23,6 +25,7 @@ const articlePage = () => {
     let data = res.data.articles;
 
     setArticles(data);
+    setLoading(false);
   };
 
   // calls fetch function on initial render
@@ -54,40 +57,50 @@ const articlePage = () => {
   return (
     <>
       {isLoggedIn && userName == user ? (
-        <div className={styles.container}>
-          <Link href={`${user}/newArticle`}>
-            <div className={styles.icbackground}>
-              <Add sx={{ fontSize: 65 }} className={styles.icAdd} />
+        <>
+          {loading == true ? (
+            <div className={styles.loadingContainer}>
+              <CircularProgress />
             </div>
-          </Link>
-          {/* map goes by every article 1 by 1 */}
-          {articles.map((article, index) => (
-            <div key={index} className={styles.articles}>
-              <div className={styles.articleTitle}>{article.title}</div>
-              <div className={styles.dateAndCategory}>
-                <div className={styles.articleDate}>
-                  {article.date_published}
+          ) : (
+            <div className={styles.container}>
+              <Link href={`${user}/newArticle`}>
+                <div className={styles.icbackground}>
+                  <Add sx={{ fontSize: 65 }} className={styles.icAdd} />
                 </div>
-                <div className={styles.articleCategory}>{article.category}</div>
-              </div>
-              <div className={styles.articleContent}>{article.content}</div>
-              <div className={styles.articleAuthor}>{userName}</div>
-              <div
-                className={styles.editArticle}
-                onClick={() => editArticle(article)}
-              >
-                <Edit className={styles.articleEdit}></Edit>
-                {/* it takes a parameter so it's a function */}
-                <div
-                  className={styles.articleDelete}
-                  onClick={() => deleteArticle(article)}
-                >
-                  <Delete></Delete>
+              </Link>
+              {/* map goes by every article 1 by 1 */}
+              {articles.map((article, index) => (
+                <div key={index} className={styles.articles}>
+                  <div className={styles.articleTitle}>{article.title}</div>
+                  <div className={styles.dateAndCategory}>
+                    <div className={styles.articleDate}>
+                      {article.date_published}
+                    </div>
+                    <div className={styles.articleCategory}>
+                      {article.category}
+                    </div>
+                  </div>
+                  <div className={styles.articleContent}>{article.content}</div>
+                  <div className={styles.articleAuthor}>{userName}</div>
+                  <div
+                    className={styles.editArticle}
+                    onClick={() => editArticle(article)}
+                  >
+                    <Edit className={styles.articleEdit}></Edit>
+                    {/* it takes a parameter so it's a function */}
+                    <div
+                      className={styles.articleDelete}
+                      onClick={() => deleteArticle(article)}
+                    >
+                      <Delete></Delete>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          )}
+        </>
       ) : (
         <div className={styles.loggedIn}>
           <h1 className={styles.txtLoggedIn}>

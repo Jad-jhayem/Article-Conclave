@@ -32,10 +32,9 @@ export async function AddUser(data) {
     let user = db.collection("user");
 
     //condition to check if user exist
-    let x = FetchUser(data);
-    console.log(x);
-    if (x == data) {
-      return "User already exist";
+    let x = await FetchUser({ username: data.username });
+    if (x.lenght > 0) {
+      return { user: [] };
     } else {
       const result = await user.insertOne(data);
       return { user: result };

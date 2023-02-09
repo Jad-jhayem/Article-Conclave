@@ -4,15 +4,13 @@ import Image from "next/image";
 import Logo from "../../public/pictures/Logo.png";
 import { useRouter } from "next/router";
 import { useLogIn } from "@/context/LogIn";
-import {
-  Avatar,
-  Menu,
-  MenuItem,
-  IconButton,
-  Divider,
-  Logout,
-  ListItemIcon,
-} from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import Logout from "@mui/icons-material/Logout";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {

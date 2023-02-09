@@ -12,6 +12,7 @@ const signUp = () => {
   const [verifyPassword, setVerifyPassword] = useState(null);
   const [name, setName] = useState(null);
   const [checked, setchecked] = useState(false);
+  const [error, setError] = useState(false);
   const { isLoggedIn, setIsLoggedIn, setUserEmail, setUserName, userName } =
     useLogIn();
 
@@ -27,10 +28,15 @@ const signUp = () => {
         password: password,
       })
       //.then waits to insert the user to database , chack if succesful then does the function
-      .then(() => {
-        setIsLoggedIn(true);
-        setUserEmail(email);
-        setUserName(name);
+      .then((res) => {
+        let x = res.data.user;
+        if (x.lenght > 0) {
+          setIsLoggedIn(true);
+          setUserEmail(email);
+          setUserName(name);
+          return true;
+        }
+        return false;
       })
       .catch((e) => {
         console.log("Couldn't register user");
@@ -73,10 +79,12 @@ const signUp = () => {
     }
   };
   const handleSubmit = () => {
-    addNewsletter();
-    insertUser();
-
-    router.push(`/${name}`);
+    if (insertUser() == true) {
+      addNewsletter();
+      router.push(`/${name}`);
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -157,6 +165,11 @@ const signUp = () => {
             >
               Sign Up
             </Button>
+            {error == true && (
+              <div className={styles.userexist}>
+                <p className={styles.txtuserexist}>User already exist</p>
+              </div>
+            )}
           </form>
         </div>
       ) : (
