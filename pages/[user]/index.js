@@ -64,40 +64,47 @@ const articlePage = () => {
             </div>
           ) : (
             <div className={styles.container}>
-              <Link href={`${user}/newArticle`}>
-                <div className={styles.icbackground}>
-                  <Add sx={{ fontSize: 65 }} className={styles.icAdd} />
-                </div>
-              </Link>
-              {/* map goes by every article 1 by 1 */}
-              {articles.map((article, index) => (
-                <div key={index} className={styles.articles}>
-                  <div className={styles.articleTitle}>{article.title}</div>
-                  <div className={styles.dateAndCategory}>
-                    <div className={styles.articleDate}>
-                      {article.date_published}
-                    </div>
-                    <div className={styles.articleCategory}>
-                      {article.category}
-                    </div>
+              <div className={styles.plusLink}>
+                <Link href={`${user}/newArticle`}>
+                  <div className={styles.icbackground}>
+                    <Add sx={{ fontSize: 65 }} className={styles.icAdd} />
                   </div>
-                  <div className={styles.articleContent}>{article.content}</div>
-                  <div className={styles.articleAuthor}>{userName}</div>
-                  <div
-                    className={styles.editArticle}
-                    onClick={() => editArticle(article)}
-                  >
-                    <Edit className={styles.articleEdit}></Edit>
-                    {/* it takes a parameter so it's a function */}
+                </Link>
+              </div>
+
+              <div className={styles.articleContainer}>
+                {/* map goes by every article 1 by 1 */}
+                {articles.map((article, index) => (
+                  <div key={index} className={styles.articles}>
+                    <div className={styles.articleTitle}>{article.title}</div>
+                    <div className={styles.dateAndCategory}>
+                      <div className={styles.articleDate}>
+                        {article.date_published}
+                      </div>
+                      <div className={styles.articleCategory}>
+                        {article.category}
+                      </div>
+                    </div>
+                    <div className={styles.articleContent}>
+                      {article.content}
+                    </div>
+                    <div className={styles.articleAuthor}>{userName}</div>
                     <div
-                      className={styles.articleDelete}
-                      onClick={() => deleteArticle(article)}
+                      className={styles.editArticle}
+                      onClick={() => editArticle(article)}
                     >
-                      <Delete></Delete>
+                      <Edit className={styles.articleEdit}></Edit>
+                      {/* it takes a parameter so it's a function */}
+                      <div
+                        className={styles.articleDelete}
+                        onClick={() => deleteArticle(article)}
+                      >
+                        <Delete></Delete>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           )}
         </>
